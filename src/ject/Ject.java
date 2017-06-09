@@ -11,8 +11,8 @@ public class Ject {
         
         System.out.print("Program" + "\n"+"\n"); 
                 
-        //Admin a = new Admin();
-        //a.Admin();
+        Admin a = new Admin();
+        a.Admin();
         
         Menu b = new Menu();
         b.Menu();
