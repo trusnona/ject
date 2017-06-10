@@ -18,7 +18,7 @@ public class Ject {
         b.Menu();
         
         SaveFile d = new SaveFile();
-        d.File();
+        d.SaveFile();
            
     }
     
