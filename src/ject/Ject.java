@@ -55,7 +55,8 @@ class Menu{
         
         Case c = new Case();
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Please select the menu : ");
+        System.out.println("Please select the menu : "+"/n");
+        System.out.println("1.menu1"+"/n"+"2.menu2"+"/n"+"3.menu3"+"/n"+"4.menu4"+"/n"+"5.menu5"+"/n"+"6.exit");
         
         int menu = scanner.next().charAt(0);
          
