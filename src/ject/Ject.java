@@ -1,10 +1,8 @@
 //โปรแกรมบันทึกข้อมูล
 package ject;
 
-import java.sql.*;
 import java.util.*;
 import java.io.*;
-
 
 public class Ject {
 
