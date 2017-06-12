@@ -1,6 +1,7 @@
-//โปรแกรมบันทึกจำนวณ สินค้า
+//โปรแกรมบันทึกข้อมูล
 package ject;
 
+import java.sql.*;
 import java.util.*;
 import java.io.*;
 
@@ -11,14 +12,11 @@ public class Ject {
         
         System.out.print("Program" + "\n"+"\n"); 
                 
-        Admin a = new Admin();
-        a.Admin();
+        //Admin a = new Admin();
+        //a.Admin();
         
         Menu b = new Menu();
         b.Menu();
-        
-        SaveFile d = new SaveFile();
-        d.SaveFile();
            
     }
     
@@ -51,91 +49,77 @@ class Admin{
 
 class Menu{
     
-    void Menu(){
+    void Menu() throws IOException{
         
-        Case c = new Case();
+        Case c = new Case();       
+        int i = 0;
+        
+        System.out.println("1.Add Data"+"\n"+"2.Check Data"+"\n"+"3.Contact"+"\n"+"4.exit"+"\n");
+        
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please select the menu : "+"/n");
-        System.out.println("1.menu1"+"/n"+"2.menu2"+"/n"+"3.menu3"
-+"/n"+"4.menu4"+"/n"+"5.menu5"+"/n"+"6.exit");
+        int menu;
+        do{
+        System.out.print("Please select the menu : ");
         
-        int menu = scanner.next().charAt(0);
-         
-        switch (menu) {
-            
-            case '1' : { c.Case1(); } break;
-            case '2' : { c.Case2(); } break;
-            case '3' : { c.Case3(); } break;
-            case '4' : { c.Case4(); } break;
-            case '5' : { c.Case5(); } break;
-            case '6' : { System.out.println("see ya");} break;
-            
-            
-        }
+        menu = scanner.nextInt();
+
+        switch (menu) {                    
+                
+            case 1 : { c.Case1(); } break;
+            case 2 : { c.Case2(); } break;
+            case 3 : { c.Case3(); } break;          
+            //case 4 : { System.out.println("Thank You");} break;
+ 
+        } System.out.println("Thank You");
+        
+        }while(menu < 4);
+        
+    
     }
+
 }
 
-class Method{
-    
-    void Method(){
-        
-        
-        }
-}
 
-class SaveFile{
-    String data;
+class Case{
     
-    void File() throws IOException{
+    String data1;
+    
+    void Case1() throws IOException{
         
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\n"+"Please type the Data : ");
+        data1 = scanner.next();
+        System.out.println("\n"+"Complete");
+        
+               
         File file = new File ("data.txt");
             if (!file.exists()){
                 file.createNewFile();
             }       
-        try (FileWriter writer = new FileWriter("data.txt",true)) {
-                writer.write("nona");
+        try (FileWriter writer = new FileWriter("data.txt",true)) {           
+                writer.write(data1 + "\n");
                 }catch (IOException e){
                          System.out.print(e);}  
-        
-        
-    }
-}
-
-class Case{
-    
-    void Case1(){
-        
-        System.out.print("dfsd");
+             
 }
         
-    void Case2(){
+    void Case2() throws FileNotFoundException{
         
-        System.out.println("hi");       
+        try{
+        File file = new File ("data.txt");
+        Scanner checkFile = new Scanner(file);
+        
+        String keep = checkFile.nextLine();
+        System.out.println(keep);
+        }catch (Exception e){}
+        System.out.println("\n"+"Complete");       
     
 }
 
     void Case3(){
         
-        System.out.println("hi");       
-   
-}
-
-    void Case4(){
-        
-        System.out.println("hi");
+        System.out.println("\n"+"Plase contrat mr.trat"); 
         
     }
-    
-    void Case5(){
-        
-        System.out.println("hi");
-        
-    }    
-}
-    
-    
-
-
-
-
-//throw IOException {
+ 
+}  
