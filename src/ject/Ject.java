@@ -1,8 +1,12 @@
 //โปรแกรมบันทึกข้อมูล
 package ject;
 
-import java.util.*;
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class ject {
 
     public static void main(String[] args) throws IOException {
@@ -10,8 +14,7 @@ public class ject {
         System.out.print("Program" + "\n"+"\n"); 
                 
         Admin a = new Admin();
-        a.Admin();
-     
+        a.Admin();     
     }   
 }
 
@@ -54,21 +57,17 @@ class Menu{
         Scanner scanner = new Scanner(System.in);
         int menu;
         do{
-        System.out.print("Please select the menu : ");
-        
+        System.out.print("Please select the menu : ");        
         menu = scanner.nextInt();
 
-        switch (menu) {                    
-                
+        switch (menu) {                                    
             case 1 : { c.Case1(); } break;
             case 2 : { c.Case2(); } break;
             case 3 : { c.Case3(); } break;          
             case 4 : { c.Case4(); } break;
  
-        } System.out.println("\n"+"Thank You"+"\n");
-        
-        }while(menu < 5);       
-    
+        } System.out.println("\n"+"Thank You"+"\n");        
+        }while(menu < 5);          
     }
 }
 
@@ -82,8 +81,7 @@ class Case{
         System.out.print("\n"+"Please type the Data : ");
         data1 = scanner.next();
         System.out.println("\n"+"Complete");
-        
-               
+                      
         File file = new File ("data.txt");
             if (!file.exists()){
                 file.createNewFile();
@@ -91,8 +89,7 @@ class Case{
         try (FileWriter writer = new FileWriter("data.txt",true)) {           
                 writer.write(data1 + "\n");
                 }catch (IOException e){
-                         System.out.print(e);}  
-             
+                         System.out.print(e);}               
 }
         
     void Case2() throws FileNotFoundException{
