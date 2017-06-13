@@ -3,8 +3,7 @@ package ject;
 
 import java.util.*;
 import java.io.*;
-
-public class Ject {
+public class ject {
 
     public static void main(String[] args) throws IOException {
         
@@ -12,19 +11,17 @@ public class Ject {
                 
         Admin a = new Admin();
         a.Admin();
-        
-        Menu b = new Menu();
-        b.Menu();
-           
-    }
-    
+     
+    }   
 }
 
 class Admin{
     String name , userName , password ;
 
-    void Admin() throws IOException{
+    void Admin() throws IOException{  
         
+        Menu b = new Menu();
+      
         Scanner scanner = new Scanner(System.in);
         System.out.print("name = ");
         name = scanner.next();
@@ -32,17 +29,16 @@ class Admin{
         userName = scanner.next();
         System.out.print("password = ");
         password = scanner.next();
-        
+          
         if (userName.equals("admin") && password.equals("admin")){
-            System.out.println("\n"+"Hi "+name+"<>"+" Yousucess"+"\n");
+            System.out.println("\n"+"Hi "+name+" <> "+" Yousucess"+"\n");b.Menu();
         }else if(userName.equals("admin") && password.equals("password")){
-            System.out.println("\n"+"Hi "+name+"<>"+" Yousucess"+"\n");
-        }else{
-            System.out.println("please try again"+"\n");
-        }
+            System.out.println("\n"+"Hi "+name+ " <> "+" Yousucess"+"\n");b.Menu();
+        }else{ 
+            System.out.println("\n"+"Username or Password"+"Wrong"+"\n"+"please try again"+"\n");
         
+        } 
     }
-    
 }
 
 class Menu{
@@ -52,7 +48,8 @@ class Menu{
         Case c = new Case();       
         int i = 0;
         
-        System.out.println("1.Add Data"+"\n"+"2.Check Data"+"\n"+"3.Contact"+"\n"+"4.exit"+"\n");
+        System.out.println("1.Add Data"+"\n"+"2.Check Data new"+"\n"+"3.Check Data All"
+                +"\n"+"4.Contact"+"\n"+"5.exit"+"\n");
         
         Scanner scanner = new Scanner(System.in);
         int menu;
@@ -66,17 +63,14 @@ class Menu{
             case 1 : { c.Case1(); } break;
             case 2 : { c.Case2(); } break;
             case 3 : { c.Case3(); } break;          
-            //case 4 : { System.out.println("Thank You");} break;
+            case 4 : { c.Case4(); } break;
  
-        } System.out.println("Thank You");
+        } System.out.println("\n"+"Thank You"+"\n");
         
-        }while(menu < 4);
-        
+        }while(menu < 5);       
     
     }
-
 }
-
 
 class Case{
     
@@ -114,10 +108,27 @@ class Case{
     
 }
 
-    void Case3(){
+    void Case3() throws FileNotFoundException{
         
-        System.out.println("\n"+"Plase contrat mr.trat"); 
+        try{
+            
+        String [] arrayData = new String[1000];
+        int count = 0;    
+        File file = new File ("data.txt");
+        Scanner checkFile = new Scanner(file);
         
+        while (checkFile.hasNextLine()){
+            arrayData [count] = checkFile.nextLine();
+            count ++;
+        }for(int i = 0; i < count; i++){
+                System.out.println("\n"+arrayData[i]);
+        }
+        }catch (Exception e){}
+        System.out.println("\n"+"Complete");  
     }
- 
+    
+    void Case4(){
+        
+        System.out.print("please contact nona");
+    }
 }  
