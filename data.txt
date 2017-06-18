@@ -11,3 +11,8 @@ jack
 hello
 fly
 plane
+flower
+happy
+bat
+sony
+lg
